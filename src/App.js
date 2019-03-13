@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './screens/Home';
 import './App.css';
 import Reacttable from './screens/Reacttable';
+import reduxform from './screens/reduxform';
+
 
 class App extends Component {
   render() {
@@ -12,6 +14,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={Home}/>
           <Route exact path="/reacttable" component={Reacttable}/>
+          <Route exact path="/reduxform" component={reduxform}/>
         </div>
       </Router>
     );
