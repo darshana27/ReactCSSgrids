@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { Grid, Menu, Segment, Divider, Icon, Label, Table, Checkbox } from 'semantic-ui-react';
+import { Grid, Menu, Segment, Button, Icon, Label, Table, Checkbox } from 'semantic-ui-react';
 import "semantic-ui-css/semantic.min.css";
 import {connect} from 'react-redux';
 import {fetchApiData} from '../redux/actions/index';
+
 
 import './Home.css';
 
@@ -12,7 +13,6 @@ class Home extends React.Component {
         super(props);
         this.state= {
             activeItem: 'USD',
-            
         };
         
     }
@@ -28,13 +28,13 @@ class Home extends React.Component {
 
     
     render() {
-        console.log(this.props.data.results)
+        console.log("------------------------> Props Data Results : ",this.props.data.results)
         return (
             <div className="wrapper">
                 <div className="item1">InstaReM Pay-in</div>  
-                <div className="item2">Global Payment Receiving Accounts</div>  
-                <div className="item3">Request Payment</div>  
-                <div className="item4">InstaReM pay-in service provies you with several international receiving accounts which enables you to rceive payments from companies worldwide</div>  
+                <div className="item2"><Button basic color="black" content="Global Payment Receiving Accounts"/></div>  
+                <div className="item3"><Button basic color="black" content="Request Payment"/></div>  
+                <div className="item4">InstaReM pay-in service provides you with several international receiving accounts which enables you to receive payments from companies worldwide</div>  
                 <div className="item5">using the InstaReM pay-in platform or provide your payment service information to the company thats needs to pay you.</div>  
                 <div className="item6">
                     <Grid className="sgrid">
@@ -73,11 +73,9 @@ class Home extends React.Component {
                                                     this.props.data.results.map((elem, idx) => {
                                                         console.log(elem)
                                                         return(
-                                                            <Table.Row>
-                                                                
+                                                            <Table.Row>  
                                                                 <Table.Cell collapsing>
-                                                                    <Checkbox />
-                                                                    
+                                                                    <Checkbox />    
                                                                 </Table.Cell>
                                                                 <Table.Cell>{elem.name}</Table.Cell>
                                                                 <Table.Cell>{elem.rotation_period}</Table.Cell>

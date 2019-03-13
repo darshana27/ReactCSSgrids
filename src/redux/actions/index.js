@@ -11,12 +11,14 @@ export const getData = (data) => {
 }
 
 export const fetchApiData = () => {
-    return (dispatch) => {
+    return (dispatch) => { 
         return axios.get(apiURL)
                 .then(response => {
                     console.log(response.data.results);
                     dispatch(getData(response.data));
                 })
-                .catch(error => {throw(error)})
+                .catch(error => {
+                    throw(error)
+                })
     }
 }
